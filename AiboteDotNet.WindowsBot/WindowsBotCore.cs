@@ -1,7 +1,9 @@
-﻿using AiboteDotNet.Core.DataModel;
+﻿using AiboteDotNet.AndroidBot.DataModel;
+using AiboteDotNet.Core.DataModel;
 using AiboteDotNet.Core.Tcp;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -271,9 +273,9 @@ namespace AiboteDotNet.WindowsBot
             return Channel.SendData<bool>("initNLP", key);
         }
 
-        public Task<bool> InitOcr(string serverIp, int prot)
+        public Task<bool> InitOcr(string serverIp, int prot, bool useAngleModel = false, bool enableGPU = false, bool enableTensorrt = false)
         {
-            return Channel.SendData<bool>("initOcr", serverIp, prot);
+            return Channel.SendData<bool>("initOcr", serverIp, prot, useAngleModel, enableGPU, enableTensorrt);
         }
 
         public Task<bool> InitSpeechService(string speechKey, string speechRegion)
@@ -505,6 +507,25 @@ namespace AiboteDotNet.WindowsBot
         public Task<bool> WriteExcelStr(string sheetObject, int row, int col, string strValue)
         {
             return Channel.SendData<bool>("writeExcelStr", sheetObject, row, col, strValue);
+        }
+
+        public Task<bool> initYolo(string yoloServerIp, string modelPath)
+        {
+            return Channel.SendData<bool>("initYolo", yoloServerIp, modelPath);
+        }
+
+        public async Task<List<PositionConnent>> yoloByHwnd(int hwnd, bool isBack = false)
+        {
+            List<PositionConnent> positionConnents = new List<PositionConnent>();
+            string json = await Channel.SendData<string>("yoloByHwnd", hwnd, isBack);
+            return PositionConnent.By(json);
+        }
+
+        public async Task<List<PositionConnent>> yoloByFile(string imagePath)
+        {
+            List<PositionConnent> positionConnents = new List<PositionConnent>();
+            string json = await Channel.SendData<string>("yoloByFile", imagePath);
+            return PositionConnent.By(json);
         }
     }
 }

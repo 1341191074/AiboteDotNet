@@ -10,7 +10,7 @@ namespace AiboteDotNet.AndroidBot.Api
 {
     public interface IOcr
     {
-        public Task<bool> InitOcr(string ocrServerIp, int ocrServerPort = 9527);
+        public Task<bool> InitOcr(string ocrServerIp, int ocrServerPort = 9527, bool useAngleModel=false, bool enableGPU = false, bool enableTensorrt = false);
         public Task<PositionConnent> FindWords(string words);
         public Task<PositionConnent> FindContainsWords(string words);
         public Task<PositionConnent> FindWords(string words, Region region, int scale);

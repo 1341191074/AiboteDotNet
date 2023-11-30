@@ -29,7 +29,8 @@ namespace AiboteDotNet.AndroidBot
         IToast,
         IUrlRequest,
         IVerificationCodeSystem,
-        IWeChat
+        IWeChat,
+        IYolo
     {
     }
 }

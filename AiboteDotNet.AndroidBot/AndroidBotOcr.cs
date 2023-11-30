@@ -49,9 +49,9 @@ namespace AiboteDotNet.AndroidBot
             return _AndroidBotCore.Ocr(0, 0, 0, 0, 0, 0, 1);
         }
 
-        public Task<bool> InitOcr(string ocrServerIp, int ocrServerPort = 9527)
+        public Task<bool> InitOcr(string ocrServerIp, int ocrServerPort = 9527, bool useAngleModel = false, bool enableGPU = false, bool enableTensorrt = false)
         {
-            return _AndroidBotCore.InitOcr(ocrServerIp, ocrServerPort);
+            return _AndroidBotCore.InitOcr(ocrServerIp, ocrServerPort, useAngleModel, enableGPU, enableTensorrt);
         }
 
 

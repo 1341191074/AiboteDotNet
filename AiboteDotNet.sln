@@ -9,9 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AiboteNotNet.App", "AiboteN
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AiboteDotNet.AndroidBot", "AiboteDotNet.AndroidBot\AiboteDotNet.AndroidBot.csproj", "{20C3D237-D833-4D34-9F67-19A36F5DE62B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AiboteDotNet.WindowsBot", "AiboteDotNet.WindowsBot\AiboteDotNet.WindowsBot.csproj", "{A2AEB81E-98BB-47F0-867B-0F7B9786B6E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AiboteDotNet.WindowsBot", "AiboteDotNet.WindowsBot\AiboteDotNet.WindowsBot.csproj", "{A2AEB81E-98BB-47F0-867B-0F7B9786B6E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AiboteDotNet.WebBot", "AiboteDotNet.WebBot\AiboteDotNet.WebBot.csproj", "{C65B226E-C4C0-43E3-869B-38F52DFFAF1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AiboteDotNet.WebBot", "AiboteDotNet.WebBot\AiboteDotNet.WebBot.csproj", "{C65B226E-C4C0-43E3-869B-38F52DFFAF1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{C6F29953-C46C-4550-9903-70751301601A}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

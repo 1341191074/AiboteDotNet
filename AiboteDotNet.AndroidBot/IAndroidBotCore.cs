@@ -152,7 +152,7 @@ namespace AiboteDotNet.AndroidBot
         public Task<string> GetTitle();
         //初始化ocr
         //使用AiboteAndroidOcr.exe ocr服务端
-        public Task<bool> InitOcr(string serverIp, int prot = 9527);
+        public Task<bool> InitOcr(string serverIp, int prot = 9527, bool useAngleModel = false, bool enableGPU = false, bool enableTensorrt = false);
         //使用ocr
         public Task<List<PositionConnent>> Ocr(int left = 0, int top = 0, int right = 0, int bottom = 0,
         int thresholdType = 0, int thresh = 0, int maxval = 0, double scale = 1.0);
@@ -240,6 +240,11 @@ namespace AiboteDotNet.AndroidBot
         public Task<bool> CloseDriver();
         //取得活动包名
         public Task<string> GetPackage();
+
+        public Task<bool> initYolo(string yoloServerIp, string modelPath);
+
+        public Task<List<PositionConnent>> yolo(double scale = 1);
+
 
     }
 }

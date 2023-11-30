@@ -1,4 +1,5 @@
-﻿using AiboteDotNet.Core.DataModel;
+﻿using AiboteDotNet.AndroidBot.DataModel;
+using AiboteDotNet.Core.DataModel;
 using AiboteDotNet.Core.Tcp;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json.Linq;
@@ -294,7 +295,16 @@ namespace AiboteDotNet.WindowsBot
         //初始化ocr
         //数据包：7/9/4\ninitOcr127.0.0.19752
         //返回数据包："false"或者 "true"
-        public Task<bool> InitOcr(string serverIp, int prot);
+        /// <summary>
+        /// 初始化ocr服务
+        /// </summary>
+        /// <param name="serverIp">ocr服务器IP。当参数值为 "127.0.0.1"时 为本地DLL模式。根据显卡驱动对应的版本，将 ocr_cuda11.8或者ocr_cuda10.1里面的所有文件，复制到WindowsDriver.exe同级目录下，不必打开ppocr.exe服务端</param>
+        /// <param name="prot">固定端口9527</param>
+        /// <param name="useAngleModel">支持图像旋转。 默认false</param>
+        /// <param name="enableGPU">启动GPU 模式。默认false</param>
+        /// <param name="enableTensorrt">启动加速，仅 enableGPU = true 时有效，默认false 。图片太大可能会导致GPU内存不足，程序崩溃，谨慎使用</param>
+        /// <returns></returns>
+        public Task<bool> InitOcr(string serverIp, int prot, bool useAngleModel = false, bool enableGPU = false, bool enableTensorrt = false);
 
 
         //使用ocr
@@ -736,6 +746,28 @@ namespace AiboteDotNet.WindowsBot
         //关闭驱动程序
         //发送数据包：11\ncloseDriver
         public Task<string> CloseDriver();
-        
+
+        /// <summary>
+        /// 初始yolo服务
+        /// </summary>
+        /// <param name="yoloServerIp">yolo服务器IP,端口固定9528</param>
+        /// <param name="modelPath">模型路径</param>
+        /// <returns>成功返回 true，失败返回false</returns>
+        public Task<bool> initYolo(string yoloServerIp, string modelPath);
+
+        /// <summary>
+        /// yoloByHwnd
+        /// </summary>
+        /// <param name="hwnd">窗口句柄</param>
+        /// <param name="isBack">后台 true，前台 false。默认前台操作 </param>
+        /// <returns>失败返回null，成功返回数组形式的识别结果</returns>
+        public Task<List<PositionConnent>> yoloByHwnd(int hwnd, bool isBack = false);
+
+        /// <summary>
+        /// yoloByFile
+        /// </summary>
+        /// <param name="imagePath">图片路径</param>
+        /// <returns>失败返回null，成功返回数组形式的识别结果</returns>
+        public Task<List<PositionConnent>> yoloByFile(string imagePath);
     }
 }

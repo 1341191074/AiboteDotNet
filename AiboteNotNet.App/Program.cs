@@ -13,6 +13,7 @@ namespace AiboteNotNet.App
         private static volatile Task RunLoopTask = null;
         public static async Task Main(string[] args)
         {
+            Console.WriteLine("程序开始");
             try
             {
                 AppExitHandler.Init(HandleExit);

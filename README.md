@@ -1,5 +1,7 @@
 # AiboteDotNet
-Aibote是江西爱伯特科技自主研发的一款纯代码RPA办公自动化框架，支持Android、Browser和Windows 三大平台。框架免费、API和接口协议开源，个人、企业商用零费用 以socket tcp接口协议通信方式命令驱动，支持任何一门计算机语言调用。OEM或特殊接口定制等商业合作联系QQ：1600381943
+Aibote是江西爱伯特科技自主研发的一款纯代码RPA办公自动化框架，支持Android、Browser和Windows 三大平台。框架免费、API和接口协议开源，个人、企业商用零费用 以socket tcp接口协议通信方式命令驱动，支持任何一门计算机语言调用。
+
+By Reach(QQ:1341191074) Aibote4j交流Q群：496086899
 
 Aibote能力：
         1、AndroidBot，底层自主研发，支持安卓原生APP和H5界面元素和图色定位。元素元素定位速度是Appium框架的的10倍，2340*1080 图色定位仅需要50毫秒！
