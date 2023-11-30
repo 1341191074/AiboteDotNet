@@ -12,5 +12,8 @@ namespace AiboteNotNet.App.WindowsLogic
     {
         static readonly NLog.Logger LOGGER = NLog.LogManager.GetCurrentClassLogger();
         public override BotOptions CurBotOptions { get; set; } = BotOptions.WindowsBot;
-    }
+        protected override async Task OnRun(TcpChannel channel, Session session)
+        { 
+     
+        }
 }
