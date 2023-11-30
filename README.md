@@ -32,3 +32,5 @@ Aibote能力：
         }
     }
 ```
+
+原框架地址：https://github.com/mainxx/AiboteDotNet
